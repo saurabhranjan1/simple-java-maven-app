@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Code Quality Analysis') {
             steps {
-                sh 'mvn clean package sonar:sonar'
+                sh 'mvn sonar:sonar   -Dsonar.host.url=http://localhost:9000   -Dsonar.login=acaf823d7f14d58f83ada7dc8acf283a170b9061'
             }
         }
 	stage('Packaging Code'){
