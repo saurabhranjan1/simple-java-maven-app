@@ -10,6 +10,11 @@ pipeline {
                 sh 'mvn clean' 
             }
         }
+        stage('Code Quality Analysis') {
+            steps {
+                sh 'mvn clean package sonar:sonar'
+            }
+        }
 	stage('Packaging Code'){
             steps {
                 sh 'mvn package'
