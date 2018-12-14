@@ -8,6 +8,7 @@ pipeline {
             }
         }
         stage('Code Quality Analysis') {
+        agent none
             steps {
                 sh 'mvn sonar:sonar   -Dsonar.host.url=http://localhost:9000   -Dsonar.login=acaf823d7f14d58f83ada7dc8acf283a170b9061'
             }
