@@ -1,12 +1,8 @@
 pipeline {
-    agent {
-        docker {
-            image 'maven:3-alpine'
-            image 'sonarqube:latest' 
-        }
-    }
+    agent none
     stages {
         stage('Clean Workspace') { 
+            agent { docker 'maven:3-alpine' }
             steps {
                 sh 'mvn clean' 
             }
@@ -17,6 +13,7 @@ pipeline {
             }
         }
 	stage('Packaging Code'){
+        agent { docker 'maven:3-alpine' }
             steps {
                 sh 'mvn package'
             }
